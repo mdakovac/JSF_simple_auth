@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+
+	<p:panelGrid style="margin-top:20px; width: 100%"
+		styleClass="ui-noborder">
+		<p:row>
+			<p:column style="vertical-align: top;">
+				<h2>Login</h2>
+				<h:form id="loginForm">
+					<h:panelGrid id="grid" cellpadding="5" columns="2"
+						style="margin-bottom:10px">
+						<p:outputLabel for="loginUsername" value="Username:" />
+						<p:inputText id="loginUsername" value="#{login.username}" />
+
+						<p:outputLabel for="loginPassword" value="Password:" />
+						<h:inputSecret id="loginPassword" value="#{login.password}"/>
+
+					</h:panelGrid>
+
+					<p:commandButton value="Login" id="loginBtn"
+						action="#{login.login}" update="loginMsg" />
+					<p:messages id="loginMsg" />
+
+				</h:form>
+			</p:column>
+			<p:column>
+				<h2>New User Registration</h2>
+				<h:form>
+					<h:panelGrid id="grid" cellpadding="5" columns="2"
+						style="margin-bottom:10px">
+
+						<p:outputLabel for="username" value="Username:" />
+						<p:inputText id="username" value="#{register.username}" />
+
+						<p:outputLabel for="email" value="E-mail:" />
+						<p:inputText id="email" value="#{register.email}" />
+
+						<p:outputLabel for="password1" value="Password:" />
+						<h:inputSecret id="password1" value="#{register.password1}" />
+
+						<p:outputLabel for="password2" value="Repeat Password:" />
+						<h:inputSecret id="password2" value="#{register.password2}" />
+					</h:panelGrid>
+
+					<p:commandButton value="Register" id="registerBtn"
+						action="#{register.validate}" update="registerMsg" />
+					<p:messages id="registerMsg" />
+				</h:form>
+			</p:column>
+		</p:row>
+	</p:panelGrid>
+
+</body>
+</html>
